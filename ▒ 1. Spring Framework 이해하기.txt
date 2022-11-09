@@ -262,15 +262,92 @@
 
 
 ○ 물리적 파일 구성
-   1. MemberDTO.java
-   2. IDAO.java
-   3. OracleDAO.java
-   4. MssqlDAO.java
-   5. MemberList.java
+   1. MemberDTO.java		→ TBL_MEMBERLIST 테이블 레코드 참조 DTO
+   2. IDAO.java			→ 인터페이스
+   3. OracleDAO.java		→ DAO 역할 → 실습 진행간에는 계정 설정만 다르게 연결.
+   4. MssqlDAO.java		→ DAO 역할 → 다른 식구들의 오라클 서버에 연결해본다.
+   5. MemberList.java		→ DAO 를 참조하는 클래스. 의존관계 설정.
+				   print() 메소드 구현
    
-   6. Main.java
-   7. SpringApp03_scott.sql
+   6. Main.java			→ 클래스. main() 메소드가 포함된 테스트 클래스.
+   7. SpringApp03_scott.sql	→ 데이터베이스 관련 준비 작업.
+ 				   (테이블 생성 및 데이터 입력 쿼리문 구성 등)
 
+   ※ 오라클 암호화/복호화 개념도 추가하여 실습 진행
+
+
+----------------------------------------------------------------------------------
+
+■■■ IoC/DI  실습 04 (스프링 프레임워크 적용 Ioc/DI 실습) ■■■
+
+○ 실습 성격 및 주요 사항
+   1. 콘솔 프로젝트
+   2. 데이터 베이스 연동 프로젝트 구성
+   3. SpringApp04 (SpringApp04_1)
+
+
+○ 물리적 파일 구성
+   1. MemberDTO.java		→ TBL_MEMBERLIST 테이블 레코드 참조 DTO
+   2. IDAO.java			→ 인터페이스
+   3. OracleDAO.java		→ DAO 역할 → 실습 진행간에는 계정 설정만 다르게 연결.
+   4. MssqlDAO.java		→ DAO 역할 → 다른 식구들의 오라클 서버에 연결해본다.
+   5. MemberList.java		→ DAO 를 참조하는 클래스. 의존관계 설정.
+				   print() 메소드 구현
+   
+   6. Main.java			→ 클래스. main() 메소드가 포함된 테스트 클래스.
+   7. SpringApp03_scott.sql	→ 데이터베이스 관련 준비 작업.
+ 				   (테이블 생성 및 데이터 입력 쿼리문 구성 등)
+
+   ※ 오라클 암호화/복호화 개념도 추가하여 실습 진행
+
+※ 필요한 라이브러리 등록 하시오.
+   ojdbc6.jar + C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib 
+
+※ 생성한 applicationContext.xml 파일에
+      스프링이 관리하게 될 객체에 대한 정보와 DI 설정을 추가하기 위해
+      기본적인 템플릿 구성
+      - 참조 경로 : C:\s-f-3.0.2-with-docs\docs
+                      \spring-framework-reference\htmlsingle
+      - 참조 파일 : spring-framework-reference.html
+      - 내용 위치 : III. Core Technologies
+                    > 3. The IoC Container
+                    > 3.2 Container overview
+                    > 3.2.1. Configuration metadata
+        → 해당 위치의 xml 샘플 파일의 내용을 복사하여
+           생성한 applicationContext.xml 파일에 덮어쓰기(붙여넣기)
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+
+■■■ AOP 개념 실습 01 (AOP 기법을 적용하기 이전) ■■■
+
+○ 실습 성격 및 주요 사항
+   1. 콘솔 프로젝트
+   2. 기본적인 산술 연산 처리 → 주 업무 구성
+   3. AOP 기법을 적용하지 않은 상태에서
+      보조 업무(처리시간 측정, 로그처리)를 적용시켜보는 실습을 진행한다.
+   4. SpringApp05
+   5. 로그 자원 및 스톱워치 자원 활용을 위해
+      별도로 필요한 jar 파일을 등록하여 실습을 진행한다.
+
+
+○ 물리적 파일 구성
+   1. Calculator.java		→ 인터페이스
+   2. CalculatorImpl.java	→ 클래스
+				   주 업무와 보조 업무가 결합되어 있는 형태로 적용
+   3. Main.java			→ 클래스
+				   main() 메소드가 포함된 테스트 클래스
+
+※ 로그 및 스톱워치 사용을 위한라이브러리 등록
+
+   - 경로1 : C:\s-f-3.0.2-with-docs\dist
+     파일1 : org.springframework.core-3.0.2.RELEASE.jar
+
+   - 경로2 : C:\s-f-3.0.2-dependencies\org.apache.commons
+               \com.springsource.org.apache.commons.logging\1.1.1
+     파일2 : com.springsource.org.apache.commons.logging-1.1.1.jar
+
+   
    
 
 
