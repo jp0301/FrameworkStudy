@@ -1,51 +1,33 @@
-/*==================================================
+/* ===============================
  * Main.java
+ * - 클래스.
  * - main() 메소드가 포함된 테스트 클래스
- *==================================================*/
+ * =============================== 
+ * */
 
 
 package com.test.spr;
 
-import java.util.Scanner;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class Main
 {
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
-		/*
-		 * IDAO dao1 = new OracleDAO(); IDAO dao2 = new MssqlDAO();
-		 * 
-		 * MemberList member = new MemberList();
-		 * 
-		 * Scanner sc = new Scanner(System.in);
-		 * 
-		 * while(true) {
-		 * System.out.print("1 = OracleDAO , 2 = MssqlDAO , 0 = 종료 / 선택: "); int num =
-		 * sc.nextInt();
-		 * 
-		 * if (num == 1) { member.setDao(dao1); member.print(); } else if (num == 2) {
-		 * member.setDao(dao2); member.print(); } else if (num == 0) { break; } }
-		 */
-	
-		// ※ 객체 생성 과정을 스프링(스프링 컨테이너, IoC 컨테이너)이 담당하게 되므로
-		//    인스턴스 생성구문을 모두 삭제한다.
+		// 주 업무를 실행할 수 있는 객체 준비
+		//Caculator cal = new Calculator();
+		Calculator cal = new CalculatorImpl();
 		
-		// 스프링 환경 설정 파일로 구성한 『applicationContext.xml』로 부터
-		// MemberList 객체를 얻어올 수 있도록 처리한다.
+		// 메소드 호출을 통해 업무 실행 테스트
+		int add = cal.add(10, 20);
+		System.out.println(add);
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		int sub = cal.sub(10, 20);
+		System.out.println(sub);
 		
+		int multi = cal.multi(10, 20);
+		System.out.println(multi);
 		
-		MemberList member = context.getBean("member", MemberList.class);
-		
-		member.print();
-		
-		
-		
-		
+		int div = cal.div(10, 20);
+		System.out.println(div);
 	
 	}
 }

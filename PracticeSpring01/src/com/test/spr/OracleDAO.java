@@ -1,35 +1,22 @@
-/* 
- * ========================================================
- * MssqlDAO.java
- * - DAO 구성
- * - OracleDAO 와 비교하여 설정만 다르게 구성하여 실습 진행
- * ========================================================
- */
-
 package com.test.spr;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-//import com.util.spr.DBConn;
 
-public class MssqlDAO implements IDAO {
-		
-
-	
+public class OracleDAO implements IDAO
+{
 	@Override
-	public List<MemberDTO> list() throws ClassNotFoundException, SQLException
+	public List<MemberDTO> list() throws ClassNotFoundException, SQLException 
 	{
 		List<MemberDTO> result = new ArrayList<MemberDTO>();
 		
-		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@211.238.142.49:1521:xe", "scott", "tiger");		
+		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@211.238.142.48:1521:xe", "scott", "tiger");
 		
 		String sql = "SELECT ID, NAME, TEL, EMAIL FROM TBL_MEMBERLIST";
 		
@@ -50,11 +37,13 @@ public class MssqlDAO implements IDAO {
 		rs.close();
 		stmt.close();
 		
-		if (!conn.isClosed()) {
+		if (!conn.isClosed())
+		{
 			conn.close();
 		}
+
 		return result;
 	}
 	
-
+	
 }
